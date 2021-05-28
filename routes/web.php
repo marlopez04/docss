@@ -22,3 +22,22 @@ Route::get('/', function () {
 Route::get('/', function () {
     return view('main');
 });
+
+
+/*
+
+
+
+*/
+
+use App\Http\Controllers\CausaController;
+
+Route::get('/causas/create', [CausaController::class, 'create']);
+
+/*
+Route::resource('causas', 'CausaController');
+Route::get('causas/{id}/destroy',[
+    'uses' => 'CausaController@destroy',
+    'as'   => 'front.causas.create'
+]);
+*/
