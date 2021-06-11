@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\fuero;
+use App\Models\Fuero;
+use App\Models\Causa;
 
 class CausaController extends Controller
 {
@@ -25,7 +26,20 @@ class CausaController extends Controller
      */
     public function create()
     {
-        $fueros = fuero::orderBy('id', 'DESC');
+
+        //$fueros = Fuero::orderBy('id', 'desc')->select('descripcion', 'id')->get();
+
+        $fueros = Fuero::orderBy('id', 'desc')->get();
+
+        //dd($fueros);
+
+        foreach ($fueros as $fuero) {
+            dd($fuero->id . ' pingo ' .  $fuero->descripcion);
+        }
+
+            
+
+        
 
         return view('front.causas.create')
             ->with('fueros', $fueros);
@@ -39,7 +53,13 @@ class CausaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $causa = new Causa($request->all());
+        $causa->save();
+
+
+
+
     }
 
     /**

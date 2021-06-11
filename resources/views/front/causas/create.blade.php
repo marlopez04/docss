@@ -10,12 +10,26 @@
                                     <h4 class="card-title">Crear Causa</h4>
                                 </div>
                                 <div class="card-body">
-                                    <form>
-                                        <div class="row">
+                                <form action="{{ route('causas.store') }}" method="POST">
+                                    @method('PUT')
+                                        <div class="row">                                       
                                             <div class="col-md-5 pr-1">
                                                 <div class="form-group">
-                                                    <label>Company (disabled)</label>
-                                                    <input type="text" class="form-control" disabled="" placeholder="Company" value="Creative Code Inc.">
+                                                    <label>Fuero</label>
+                                                    
+                                                    <input type="select" class="form-control" placeholder="Username" value="{{$fueros->id}}">
+
+                                                    <select class="form-select form-select-sm" aria-label="id_fuero" require="true">
+
+                                                    <option selected></option>
+                                                        @foreach ($fueros as $fuero)
+
+                                                        <option value="{{$fuero->id}}">{{ $fuero->descripcion }}</option>
+
+                                                        @endforeach
+
+                                                    </select>
+
                                                 </div>
                                             </div>
                                             <div class="col-md-3 px-1">

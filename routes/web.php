@@ -20,7 +20,7 @@ Route::get('/', function () {
 */
 
 Route::get('/', function () {
-    return view('main');
+    return view('login');
 });
 
 
@@ -32,7 +32,8 @@ Route::get('/', function () {
 
 use App\Http\Controllers\CausaController;
 
-Route::get('/causas/create', [CausaController::class, 'create']);
+Route::get('/causas/create', [CausaController::class, 'create'])->name('causas.create');
+Route::post('/causas/store', [CausaController::class, 'store'])->name('causas.store');
 
 /*
 Route::resource('causas', 'CausaController');
