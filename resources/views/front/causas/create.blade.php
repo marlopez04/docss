@@ -2,6 +2,7 @@
 
 @section('content')
 
+
 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-12">
@@ -11,91 +12,77 @@
                                 </div>
                                 <div class="card-body">
                                 <form action="{{ route('causas.store') }}" method="POST">
-                                    @method('PUT')
+                                    
+                                    @csrf
                                         <div class="row">                                       
                                             <div class="col-md-5 pr-1">
                                                 <div class="form-group">
-                                                    <label>Fuero</label>
-                                                    
-                                                    <input type="select" class="form-control" placeholder="Username" value="{{$fueros->id}}">
+                                                    <label>Centro</label>
+                                
+                                                    <select class="form-select" name="centro" aria-label="Fuero" require="true">
+                                                        <!-- en base a este se deben mostrar los fueros -->
+                                                        <option selected></option>
+                                                            @foreach ($fueros as $fuero)
 
-                                                    <select class="form-select form-select-sm" aria-label="id_fuero" require="true">
+                                                            <option class="form-select form-option-sm"  value="{{$fuero->id}}"> {{ $fuero->centro  }}</option>
 
-                                                    <option selected></option>
-                                                        @foreach ($fueros as $fuero)
-
-                                                        <option value="{{$fuero->id}}">{{ $fuero->descripcion }}</option>
-
-                                                        @endforeach
+                                                            @endforeach
 
                                                     </select>
 
+                                                    <label>Fuero</label>
+                                
+                                                    <select class="form-select" name="id_fuero" aria-label="Fuero" require="true">
+                                                        <!-- Depende de que centro se seleccione -->
+                                                        <option selected></option>
+                                                            @foreach ($fueros as $fuero)
+
+                                                            <option class="form-select form-option-sm"  value="{{$fuero->id}}">{{ $fuero->descripcion}} </option>
+
+                                                            @endforeach
+
+                                                    </select>
                                                 </div>
                                             </div>
-                                            <div class="col-md-3 px-1">
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6 pr-1">
                                                 <div class="form-group">
-                                                    <label>Username</label>
-                                                    <input type="text" class="form-control" placeholder="Username" value="michael23">
+                                                    <label>Descripcion</label>
+                                                    <input type="text" name="descripcion" class="form-control" placeholder="Descripcion de la causa">
                                                 </div>
                                             </div>
-                                            <div class="col-md-4 pl-1">
+                                            <div class="col-md-6 pr-1">
                                                 <div class="form-group">
-                                                    <label for="exampleInputEmail1">Email address</label>
-                                                    <input type="email" class="form-control" placeholder="Email">
+                                                <label>Numero de Expediente</label>
+                                                    <input type="number" name="numero_expediente" class="form-control" placeholder="Numero de Expediente">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6 pr-1">
                                                 <div class="form-group">
-                                                    <label>First Name</label>
-                                                    <input type="text" class="form-control" placeholder="Company" value="Mike">
+                                                    <label>Actor Imputado</label>
+                                                    <input type="text" name="actor_imputado" class="form-control" placeholder="Actor Imputado">
                                                 </div>
                                             </div>
                                             <div class="col-md-6 pl-1">
                                                 <div class="form-group">
-                                                    <label>Last Name</label>
-                                                    <input type="text" class="form-control" placeholder="Last Name" value="Andrew">
+                                                    <label>Demandado / Victima</label>
+                                                    <input type="text" name="demandado_victima" class="form-control" placeholder="Demandado / Victima">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <label>Address</label>
-                                                    <input type="text" class="form-control" placeholder="Home Address" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09">
+                                                <label>Objeto Procesal</label>
+                                                    <input type="text" name="objeto_procesal" class="form-control" placeholder="Objeto Procesal">
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-md-4 pr-1">
-                                                <div class="form-group">
-                                                    <label>City</label>
-                                                    <input type="text" class="form-control" placeholder="City" value="Mike">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 px-1">
-                                                <div class="form-group">
-                                                    <label>Country</label>
-                                                    <input type="text" class="form-control" placeholder="Country" value="Andrew">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 pl-1">
-                                                <div class="form-group">
-                                                    <label>Postal Code</label>
-                                                    <input type="number" class="form-control" placeholder="ZIP Code">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label>About Me</label>
-                                                    <textarea rows="4" cols="80" class="form-control" placeholder="Here can be your description" value="Mike">Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <button type="submit" class="btn btn-info btn-fill pull-right">Update Profile</button>
+                                        <button type="submit" class="btn btn-info btn-fill pull-right">Crear</button>
                                         <div class="clearfix"></div>
                                     </form>
                                 </div>

@@ -15,6 +15,12 @@ class CreateMovimientosTable extends Migration
     {
         Schema::create('movimientos', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('id_sentencia')->nullable();
+            $table->foreignId('origen')->nullable();
+            $table->foreignId('destino')->nullable();
+            $table->foreignId('id_usuario')->nullable();
+            $table->enum('tipo',['Pre-Opinante', 'Conformante'])->default('Pre-Opinante');
+            $table->string('motivo');
             $table->timestamps();
         });
     }

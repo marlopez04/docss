@@ -15,7 +15,7 @@ class Causa extends Model
 
     public function fuero()
     {
-    	return $this->belongsTo('App\fuero', 'id_fuero', 'id');
+    	return $this->belongsTo('App\Models\Fuero', 'id_fuero', 'id');
     }
 
 }

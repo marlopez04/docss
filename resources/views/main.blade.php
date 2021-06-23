@@ -88,7 +88,7 @@
             <!-- Navbar -->
             <nav class="navbar navbar-expand-lg " color-on-scroll="500">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#pablo"> User </a>
+            <!--        <a class="navbar-brand" href=""> {{ Auth::user()->name }} </a>   -->
                     <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar burger-lines"></span>
                         <span class="navbar-toggler-bar burger-lines"></span>
@@ -143,8 +143,12 @@
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#pablo">
+                            <a class="nav-link" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                
                                     <span class="no-icon">Log out</span>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 </a>
                             </li>
                         </ul>

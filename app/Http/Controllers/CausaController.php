@@ -16,7 +16,12 @@ class CausaController extends Controller
      */
     public function index()
     {
-        //
+        
+        $causas = Causa::paginate();
+        $causas->load('fuero');
+        
+        return view('front.causas.index')
+        ->with('causas', $causas);
     }
 
     /**
@@ -30,16 +35,7 @@ class CausaController extends Controller
         //$fueros = Fuero::orderBy('id', 'desc')->select('descripcion', 'id')->get();
 
         $fueros = Fuero::orderBy('id', 'desc')->get();
-
-        //dd($fueros);
-
-        foreach ($fueros as $fuero) {
-            dd($fuero->id . ' pingo ' .  $fuero->descripcion);
-        }
-
-            
-
-        
+       
 
         return view('front.causas.create')
             ->with('fueros', $fueros);
@@ -53,12 +49,12 @@ class CausaController extends Controller
      */
     public function store(Request $request)
     {
+        //return $request->all();
 
         $causa = new Causa($request->all());
         $causa->save();
 
-
-
+        return redirect()->route('causas.index');
 
     }
 

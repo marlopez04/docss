@@ -12,12 +12,12 @@ class Fuero extends Model
 
     
     protected $table = "fueros";
-    protected $fillable = ['descripcion'];
+    protected $fillable = ['descripcion', 'centro'];
     
 
     public function causas()
     {
-        return $this->hasMany('App\causa');
+        return $this->hasMany('App\Models\Causa');
     }
 
 

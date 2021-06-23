@@ -15,6 +15,7 @@ class CreateTipoSentenciasTable extends Migration
     {
         Schema::create('tipo_sentencias', function (Blueprint $table) {
             $table->id();
+            $table->string('descripcion');
             $table->timestamps();
         });
     }

@@ -15,6 +15,8 @@ class CreateRespSentenciasTable extends Migration
     {
         Schema::create('resp_sentencias', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('id_sentencia')->nullable();
+            $table->foreignId('id_usuario')->nullable();
             $table->timestamps();
         });
     }

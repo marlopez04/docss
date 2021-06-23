@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\Fuero;
 
 class FuerosSeeder extends Seeder
 {
@@ -13,13 +14,26 @@ class FuerosSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('fueros')->insert([
-			'descripcion'     => 'civil',
-			'centro'    => 'CAP'
-			]);
-        DB::table('fueros')->insert([
-                'descripcion'     => 'penal',
-                'centro'    => 'CAP'
-                ]);
+        $fuero = new Fuero();
+        $fuero->descripcion = "Civil";
+        $fuero->save();
+
+        $fuero = new Fuero();
+        $fuero->descripcion = "Penal";
+        $fuero->save();
+
+        $fuero = new Fuero();
+        $fuero->descripcion = "Apremios";
+        $fuero->save();
+
+        $fuero = new Fuero();
+        $fuero->descripcion = "Documentos";
+        $fuero->save();
+
+        $fuero = new Fuero();
+        $fuero->descripcion = "Laboral";
+        $fuero->save();
+
+        
     }
 }

@@ -15,6 +15,10 @@ class CreateVotosTable extends Migration
     {
         Schema::create('votos', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('id_sentencia')->nullable();
+            $table->foreignId('id_usuario')->nullable();
+            $table->string('direccion_archivo');
+            $table->enum('tipo',['Pre-Opinante', 'Conformante'])->default('Pre-Opinante');
             $table->timestamps();
         });
     }
