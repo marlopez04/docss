@@ -13,20 +13,20 @@
                 <div class="card-body table-full-width table-responsive">
                     <table class="table table-hover table-striped">
                         <thead>
-                            <th>ID</th>
-                            <th>Fecha</th>
-                            <th>Hora</th>
                             <th>Fuero</th>
-                            <th>Descripcion</th>
                             <th>Expediente</th>
                             <th>Actor/imputado</th>
                             <th>Demandado/Victima</th>
                             <th>Objeto Procesal</th>
+                            <th>Fecha</th>
+                            <th>Hora</th>
+                            <th>Fuero</th>
+                            <th>Descripcion</th>
                         </thead>
                         <tbody>
                         @foreach ($causas as $causa)
                             <tr>
-                                <td>{{ $causa->id }}</td>
+                                <td>PENAL</td>
                                 <td>{{ $causa->created_at->format('d/m/Y') }}</td>
                                 <td>{{ $causa->created_at->format('h:i:s A') }}</td>
                                 <td>{{ $causa->fuero->descripcion }}</td>

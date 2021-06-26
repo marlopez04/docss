@@ -8,9 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Fuero extends Model
 {
     use HasFactory;
-
-
-    
+   
     protected $table = "fueros";
     protected $fillable = ['descripcion', 'centro'];
     
