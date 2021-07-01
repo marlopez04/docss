@@ -18,4 +18,9 @@ class Causa extends Model
     	return $this->belongsTo('App\Models\Fuero', 'id_fuero', 'id');
     }
 
+    public function sentencias()
+    {
+        return $this->hasMany('App\Models\Sentencia');
+    }
+
 }

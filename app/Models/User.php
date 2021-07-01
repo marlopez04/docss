@@ -36,6 +36,33 @@ class User extends Authenticatable
      *
      * @var array
      */
+
+     //RELACIONES INICIO
+
+     public function oficina()
+     {
+         return $this->belongsTo('App\Models\Oficina', 'id_oficina', 'id');
+     }
+ 
+     public function respsentencias()
+    {
+        return $this->hasMany('App\Models\RespSentencia');
+    }
+
+    public function votos()
+    {
+        return $this->hasMany('App\Models\Vausa');
+    }
+
+    public function movimientos()
+    {
+        return $this->hasMany('App\Models\Movimiento');
+    }
+
+
+    //RELACIONES FIN
+
+
     protected $hidden = [
         'password',
         'remember_token',

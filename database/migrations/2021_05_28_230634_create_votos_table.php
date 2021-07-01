@@ -17,6 +17,7 @@ class CreateVotosTable extends Migration
             $table->id();
             $table->foreignId('id_sentencia')->nullable();
             $table->foreignId('id_usuario')->nullable();
+            $table->foreignId('id_movimiento')->nullable();
             $table->string('direccion_archivo');
             $table->enum('tipo',['Pre-Opinante', 'Conformante'])->default('Pre-Opinante');
             $table->timestamps();
