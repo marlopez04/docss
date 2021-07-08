@@ -16,6 +16,7 @@ class CreateOficinasTable extends Migration
         Schema::create('oficinas', function (Blueprint $table) {
             $table->id();
             $table->string('descripcion');
+            $table->enum('tipo',['Relatoria', 'Vocalia', 'Secretaria'])->default('Relatoria');
             $table->timestamps();
         });
      

@@ -17,6 +17,7 @@ class CreateVocaliasTable extends Migration
             $table->id();
             $table->string('descripcion');
             $table->enum('centro',['CAP', 'BRS', 'CJC', 'CJM'])->default('CAP');
+            $table->integer('id_secretaria')->unsigned();
             $table->integer('id_oficina')->unsigned();                                  
             $table->timestamps();
         });

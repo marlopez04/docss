@@ -43,7 +43,7 @@ Route::get('/causas/create', [CausaController::class, 'create'])->name('causas.c
 Route::post('/causas/store', [CausaController::class, 'store'])->name('causas.store');
 */
 
-//Route::resource('causas', CausaController::class);
+Route::resource('causas', CausaController::class);
 
 //Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
